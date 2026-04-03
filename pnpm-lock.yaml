@@ -4,18 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-catalogs:
-  default:
-    react:
-      specifier: ^19.2.0
-      version: 19.2.0
-    react-dom:
-      specifier: ^19.2.0
-      version: 19.2.0
-    react-router:
-      specifier: ^7.13.2
-      version: 7.13.2
-
 importers:
 
   .:
@@ -35,11 +23,20 @@ importers:
       '@module-federation/enhanced':
         specifier: ^0.8.9
         version: 0.8.12(@rspack/core@1.2.8(@swc/helpers@0.5.15))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.2)
+      '@repo/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@repo/store':
+        specifier: workspace:*
+        version: link:../../packages/store
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       react:
-        specifier: 'catalog:'
+        specifier: ^19.2.0
         version: 19.2.0
       react-dom:
-        specifier: 'catalog:'
+        specifier: ^19.2.0
         version: 19.2.0(react@19.2.0)
     devDependencies:
       '@rspack/cli':
@@ -54,6 +51,9 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4.0.3
         version: 4.2.2
+      '@types/node':
+        specifier: ^22.15.3
+        version: 22.15.3
       '@types/react':
         specifier: ^19.0.0
         version: 19.2.2
@@ -90,11 +90,20 @@ importers:
       '@module-federation/enhanced':
         specifier: ^0.8.9
         version: 0.8.12(@rspack/core@1.2.8(@swc/helpers@0.5.15))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.2)
+      '@repo/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@repo/store':
+        specifier: workspace:*
+        version: link:../../packages/store
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       react:
-        specifier: 'catalog:'
+        specifier: ^19.2.0
         version: 19.2.0
       react-dom:
-        specifier: 'catalog:'
+        specifier: ^19.2.0
         version: 19.2.0(react@19.2.0)
     devDependencies:
       '@rspack/cli':
@@ -109,6 +118,9 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4.0.3
         version: 4.2.2
+      '@types/node':
+        specifier: ^22.15.3
+        version: 22.15.3
       '@types/react':
         specifier: ^19.0.0
         version: 19.2.2
@@ -148,17 +160,20 @@ importers:
       '@repo/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@repo/store':
+        specifier: workspace:*
+        version: link:../../packages/store
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       react:
-        specifier: 'catalog:'
+        specifier: ^19.2.0
         version: 19.2.0
       react-dom:
-        specifier: 'catalog:'
+        specifier: ^19.2.0
         version: 19.2.0(react@19.2.0)
       react-router:
-        specifier: 'catalog:'
+        specifier: ^7.13.2
         version: 7.13.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
     devDependencies:
       '@rspack/cli':
@@ -173,6 +188,9 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4.0.3
         version: 4.2.2
+      '@types/node':
+        specifier: ^22.15.3
+        version: 22.15.3
       '@types/react':
         specifier: ^19.0.0
         version: 19.2.2
@@ -258,18 +276,40 @@ importers:
         specifier: ^8.50.0
         version: 8.50.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.2)
 
+  packages/store:
+    dependencies:
+      zustand:
+        specifier: ^5.0.12
+        version: 5.0.12(@types/react@19.2.2)(react@19.2.0)
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/node':
+        specifier: ^22.15.3
+        version: 22.15.3
+      eslint:
+        specifier: ^9.39.1
+        version: 9.39.1(jiti@2.6.1)
+      typescript:
+        specifier: 5.9.2
+        version: 5.9.2
+
   packages/typescript-config: {}
 
   packages/ui:
     dependencies:
       react:
-        specifier: 'catalog:'
+        specifier: ^19.2.0
         version: 19.2.0
       react-dom:
-        specifier: 'catalog:'
+        specifier: ^19.2.0
         version: 19.2.0(react@19.2.0)
       react-router:
-        specifier: 'catalog:'
+        specifier: ^7.13.2
         version: 7.13.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
     devDependencies:
       '@repo/core':
@@ -278,6 +318,9 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
+      '@repo/store':
+        specifier: workspace:*
+        version: link:../store
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
@@ -3229,6 +3272,24 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  zustand@5.0.12:
+    resolution: {integrity: sha512-i77ae3aZq4dhMlRhJVCYgMLKuSiZAaUPAct2AksxQ+gOtimhGMdXljRT21P5BNpeT4kXlLIckvkPM029OljD7g==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      immer: '>=9.0.6'
+      react: '>=18.0.0'
+      use-sync-external-store: '>=1.2.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      immer:
+        optional: true
+      react:
+        optional: true
+      use-sync-external-store:
+        optional: true
 
 snapshots:
 
@@ -6491,3 +6552,8 @@ snapshots:
   yn@3.1.1: {}
 
   yocto-queue@0.1.0: {}
+
+  zustand@5.0.12(@types/react@19.2.2)(react@19.2.0):
+    optionalDependencies:
+      '@types/react': 19.2.2
+      react: 19.2.0

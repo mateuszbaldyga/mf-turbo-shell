@@ -1,11 +1,12 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Home from 'home/App';
-import Settings from 'settings/App';
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router';
-import { Navigation } from '@repo/ui/navigation';
-import { routes } from '@repo/core/config/routes';
+import { Navigation } from '@repo/ui';
+import { routes } from '@repo/core/config';
+
+const Home = lazy(() => import('home/App'));
+const Settings = lazy(() => import('settings/App'));
 
 const App = () => (
   <BrowserRouter>

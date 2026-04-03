@@ -1,9 +1,9 @@
 {
-  "name": "@repo/core",
+  "name": "@repo/store",
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./config": "./src/config/index.ts"
+    "./*": "./src/*.ts"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
@@ -16,5 +16,7 @@
     "eslint": "^9.39.1",
     "typescript": "5.9.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "zustand": "^5.0.12"
+  }
 }
